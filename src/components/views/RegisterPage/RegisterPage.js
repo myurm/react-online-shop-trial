@@ -29,13 +29,12 @@ function RegisterPage(props) {
 
     useEffect(() => {
         const searchParams = new URLSearchParams(props.location.search);
-        debugger;
-        if (searchParams.get("isForEdit")) {
+        if (searchParams.get("isForEdit") === "true") {
             dispatch(articleActions.fetchArticle(props.match.params.articleId));
             setIsForUpdate(true);
         }
-        // setTitleValue(title);
-        // setContentValue(content);
+        setTitleValue(title);
+        setContentValue(content);
     }, [id]);
 
     // event
@@ -67,7 +66,7 @@ function RegisterPage(props) {
             content: ContentValue,
             views: views,
             date: date,
-            editDate: editDate
+            editDate: IsForUpdate ? Date.now() : editDate // 수정이면 현재 시간으로 Date.now()하고, 아니면 "" (state값)
         };
         dispatch(articleActions.registerArticle(article));
         // 선택한 id를 state.id(article = title값, content값)에 입력 후 return

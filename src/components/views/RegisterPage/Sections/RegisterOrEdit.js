@@ -18,7 +18,7 @@ function RegisterOrEdit(props) {
                         <label>Title: </label>
                         <Input
                             onChange={props.handleTitleChange}
-                            defaultValue={props.titleValue}
+                            value={props.titleValue}
                             name="title"
                             type="text"
                         />
@@ -27,7 +27,7 @@ function RegisterOrEdit(props) {
                         <hr></hr>
                         <TextArea
                             onChange={props.handleContentChange}
-                            defaultValue={props.contentValue}
+                            value={props.contentValue}
                             name="content"
                         />
                             {/* handleContentChange={onContentChange}

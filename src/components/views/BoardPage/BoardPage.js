@@ -28,7 +28,8 @@ function BoardPage() {
         <>
             <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
                 <div>
-                    <Link to="/register">
+                    <Link to="/register?isForEdit=false">
+                    {/* New Post는 새 글 입력하는 거니까 isForEdit에 false값을 줌 */}
                         <Button type="primary">New Post</Button>
                         {/* New Post 클릭 시 /register 로 이동 */}
                     </Link>

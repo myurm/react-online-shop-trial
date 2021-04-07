@@ -11,7 +11,7 @@ export function* registerArticleAsync(action) {
 
     yield alert("저장되었습니다.");
 
-    console.table(rspn.data.id);
+    console.log(rspn.data.id);
 
     yield history.push(`/article/${rspn.data.id}`, rspn.data.id);
     // push(url, object) 여기에서 object는 state로 보내짐
@@ -35,7 +35,7 @@ export function* getArticleAsync(action) {
     yield put(articleActions.getArticleAsync(rqst.data));
 }
 
-// 호출(수정)
+// 호출
 export function* fetchArticleAsync(action) {
     console.log(action);
     
@@ -44,4 +44,17 @@ export function* fetchArticleAsync(action) {
     const response = yield Axios.get(`http://localhost:4000/board/${id}`);
     
     yield put(articleActions.getArticleAsync(response.data));
+}
+
+// 수정 저장
+export function* updateArticleAsync(action) {
+    const article = action.payload;
+
+    const rspn = yield Axios.put(`http://localhost:4000/board/${article.id}`, article);
+
+    alert("저장되었습니다.");
+
+    console.log(rspn.data.id);
+
+    history.push(`/article/${rspn.data.id}`, rspn.data.id);
 }

@@ -7,8 +7,8 @@ const initialState  = {
     title: "",
     content: "",
     views: 0,
-    date: new Date(Date.now()),
-    editDate: new Date(Date.now())
+    date: Date.now(), // 년,월,일,시,분,초
+    editDate: ""
 };
 
 const reducers = {
@@ -44,6 +44,9 @@ const reducers = {
     },
     fetchArticle: (state, { payload: id }) => {
         console.table(id);
+    },
+    updateArticle: (state, { payload: article }) => {
+        console.table("게시글 수정 액션 호출 --updateArticle");
     }
 };
 
