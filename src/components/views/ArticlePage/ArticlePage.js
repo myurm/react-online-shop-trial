@@ -1,7 +1,5 @@
-import { Button } from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
 import { articleActions } from "../../../slice/articleSlice";
 import ArticleDetail from "./Sections/ArticleDetail";
 
@@ -37,11 +35,6 @@ function ArticlePage ({match, location}) {
                     date={date}
                     views={views}
                 />
-            </div>
-            <div style={{ margin: "2rem auto" }}>
-                <Link to={`/edit/${id}?isForEdit=true`}>
-                    <Button type="primary">수정</Button>
-                </Link>
             </div>
         </div>
     );

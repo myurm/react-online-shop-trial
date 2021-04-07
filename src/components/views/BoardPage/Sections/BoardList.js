@@ -7,9 +7,9 @@ function BoardList(props) {
             <table>
                 <colgroup>
                     <col width="10%" />
+                    <col width="60%" />
                     <col width="10%" />
-                    <col width="40%" />
-                    <col width="40%" />
+                    <col width="20%" />
                 </colgroup>
                 <tr>
                     <th>번호</th>

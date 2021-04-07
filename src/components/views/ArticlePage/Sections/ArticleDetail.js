@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Button, Typography } from "antd";
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -40,6 +41,14 @@ function ArticleDetail(props) {
                         <td colSpan="3">{props.content}</td>
                     </tr>
                 </table>
+            </div>
+            <div style={{ margin: "2rem auto" }}>
+                <Link to={`/edit/${props.id}?isForEdit=true`}>
+                    <Button type="primary">수정</Button>
+                </Link>
+            </div>
+            <div style={{ margin: "auto" }}>
+                <Button type="danger">삭제</Button>
             </div>
         </div>
     );

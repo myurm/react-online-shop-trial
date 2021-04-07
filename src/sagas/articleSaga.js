@@ -54,7 +54,7 @@ export function* updateArticleAsync(action) {
 
     alert("저장되었습니다.");
 
-    console.log(rspn.data.id);
+    console.log(article.id);
 
     history.push(`/article/${rspn.data.id}`, rspn.data.id);
 }

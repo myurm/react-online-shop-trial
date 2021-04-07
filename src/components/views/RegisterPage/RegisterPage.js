@@ -62,14 +62,19 @@ function RegisterPage(props) {
 
         // preventDefault란? a과 submit는 페이지를 이동시키는 동작과, form과 input 등은 전송하는 동작을 하는데 이런 동작들을 중단시킴
         const article = {
+            id: id,
             title: TitleValue,
             content: ContentValue,
             views: views,
             date: date,
             editDate: IsForUpdate ? Date.now() : editDate // 수정이면 현재 시간으로 Date.now()하고, 아니면 "" (state값)
         };
-        dispatch(articleActions.registerArticle(article));
-        // 선택한 id를 state.id(article = title값, content값)에 입력 후 return
+
+        if(IsForUpdate) {
+            dispatch(articleActions.updateArticle(article)); // 수정
+        } else {
+            dispatch(articleActions.registerArticle(article)); // 새로운 글 저장
+        }
     };
 
     return (
