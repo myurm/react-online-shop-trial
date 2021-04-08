@@ -21,15 +21,18 @@ function ArticleDetail(props) {
             <div>
                 <table>
                     <colgroup>
-                        <col width="10%" />
-                        <col width="40%" />
-                        <col width="10%" />
-                        <col width="40%" />
+                        <col width="30%" />
                     </colgroup>
                     <tr>
                         <th>번호</th>
                         <td>{props.id}</td>
-                        <th>조회수</th>
+                    </tr>
+                    <tr>
+                        <th>날짜</th>
+                        <td>{new Date(props.date).toLocaleString()}</td>
+                    </tr>
+                    <tr>
+                        <th>조회</th>
                         <td>{props.views}</td>
                     </tr>
                     <tr>
@@ -42,13 +45,14 @@ function ArticleDetail(props) {
                     </tr>
                 </table>
             </div>
+            <div style={{ margin: "2rem auto" }}>{props.handleComment}</div>
             <div style={{ margin: "2rem auto" }}>
                 <Link to={`/edit/${props.id}?isForEdit=true`}>
                     <Button type="primary">수정</Button>
                 </Link>
             </div>
             <div style={{ margin: "auto" }}>
-                <Button type="danger">삭제</Button>
+                <Button onClick={props.handleDeleteClick} type="danger">삭제</Button>
             </div>
         </div>
     );

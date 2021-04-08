@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from "antd";
 
 function BoardList(props) {
     return (
@@ -24,6 +25,11 @@ function BoardList(props) {
                                 <td>{article.title}</td>
                             </Link>
                             <td>{article.views}</td>
+                            <td>
+                                <Button onClick={() => props.handleDeleteClick(article.id)}>
+                                    X
+                                </Button>
+                            </td>
                         </tr>
                 ))}
             </table>

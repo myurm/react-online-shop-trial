@@ -5,6 +5,7 @@ import BoardList from "./Sections/BoardList";
 // BoardList에서 export한 걸 받아와야 함
 import { Button, Typography} from "antd";
 import { boardActions } from "../../../slice/boardSlice";
+import { articleActions } from "../../../slice/articleSlice";
 
 const { Title } = Typography;
 
@@ -18,6 +19,14 @@ function BoardPage() {
         isSuccess: state.boardReducers.isSuccess,
         error: state.boardReducers.error
     }));
+
+    const onDeleteClick = (id) => {
+        if (!window.confirm("삭제하시겠습니까?"))
+
+        return false;
+
+        dispatch(articleActions.deleteArticle(id));
+    }
 
     // init
     useEffect(() => {
@@ -41,7 +50,7 @@ function BoardPage() {
                     {error ? (
                         <h2> 에러 발생: {error} </h2>
                     ) : isSuccess && board.length > 0 ? (
-                        <BoardList board={board} />
+                        <BoardList board={board} handleDeleteClick={onDeleteClick} />
                     ) : isSuccess && board.length <= 0 ? (
                         <p> 조회할 내용이 없습니다. </p>
                     ) : (

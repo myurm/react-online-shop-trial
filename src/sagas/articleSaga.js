@@ -35,7 +35,7 @@ export function* getArticleAsync(action) {
     yield put(articleActions.getArticleAsync(rqst.data));
 }
 
-// 호출
+// 호출 (서버조회)
 export function* fetchArticleAsync(action) {
     console.log(action);
     
@@ -57,4 +57,17 @@ export function* updateArticleAsync(action) {
     console.log(article.id);
 
     history.push(`/article/${rspn.data.id}`, rspn.data.id);
+}
+
+// 삭제
+export function* deleteArticleAsync(action) {
+    const id = action.payload;
+
+    yield Axios.delete(`http://localhost:4000/board/${id}`);
+
+    alert("삭제되었습니다.")
+
+    history.push(`/`);
+
+    history.go(0); // 새로고침
 }

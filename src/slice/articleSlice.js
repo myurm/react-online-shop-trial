@@ -42,11 +42,17 @@ const reducers = {
             views: article.views
         }
     },
+    // 호출 (서버조회)
     fetchArticle: (state, { payload: id }) => {
         console.table(id);
     },
+    // 수정
     updateArticle: (state, { payload: article }) => {
-        console.table("게시글 수정 액션 호출 --updateArticle");
+        console.log("게시글 수정 액션 호출 --updateArticle");
+    },
+    // 삭제
+    deleteArticle: (state, { payload: id }) => {
+        console.log("게시글 삭제 액션 호출 -- deleteArticle"); // saga에서 감시용
     }
 };
 
