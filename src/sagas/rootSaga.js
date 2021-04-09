@@ -5,13 +5,13 @@ import { articleActions } from "../slice/articleSlice";
 import { deleteArticleAsync, updateArticleAsync, fetchArticleAsync, getArticleAsync, registerArticleAsync } from "./articleSaga";
 import { boardActions } from "../slice/boardSlice";
 import getBoardAsync from "./boardSaga";
-import { registerCommentAsync } from "./commentSaga";
+import { deleteCommentAsync, getCommentsAsync, registerCommentAsync } from "./commentSaga";
 import { commentActions } from "../slice/commentSlice";
 
 const { registerArticle, getArticle, fetchArticle, updateArticle, deleteArticle } = articleActions;
 // 변수를 {}로 감싸는 이유는 articleActions 라는 객체에서 모든 key가 아니라 registerArticle만 빼내기 위함임
 const { getBoard } = boardActions;
-const { registerComment } = commentActions;
+const { registerComment, getComments, deleteComment } = commentActions;
 
 export default function* rootWatcher() {
     yield takeLatest(registerArticle.type, registerArticleAsync);
@@ -22,4 +22,6 @@ export default function* rootWatcher() {
     yield takeLatest(updateArticle.type, updateArticleAsync);
     yield takeLatest(deleteArticle.type, deleteArticleAsync);
     yield takeLatest(registerComment.type, registerCommentAsync);
+    yield takeEvery(getComments.type, getCommentsAsync);
+    yield takeLatest(deleteComment.type, deleteCommentAsync);
 }

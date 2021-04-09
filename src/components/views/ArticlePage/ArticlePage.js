@@ -16,6 +16,9 @@ function ArticlePage ({match, location}) {
 
     useEffect(() => {
         dispatch(articleActions.getArticle(match.params.articleId));
+        // 게시글 선택하면 내용 조회
+        dispatch(commentActions.getComments(match.params.articleId));
+        // 게시글 선택하면 댓글 조회
     }, [match.params.articleId]);
 
     // 게시글
@@ -40,6 +43,9 @@ function ArticlePage ({match, location}) {
     // 댓글
     const [CommentValue, setCommentValue] = useState("");
 
+    const comments = useSelector((state) => state.commentReducers.comments);
+    console.table(comments);
+
     const onCommentChange = (e) => {
         setCommentValue(e.currentTarget.value);
     }
@@ -58,8 +64,15 @@ function ArticlePage ({match, location}) {
         dispatch(commentActions.registerComment(comment));
     };
 
+    const onDeleteComment = (commentId) => {};
+
     return (
-        <div style={{ width: "80%", margin: "3rem auto" }}>
+        <div style={{
+            maxWidth: "1200px",
+            width: "100%",
+            margin: "0 auto",
+            paddingTop: "100px"
+        }}>
             <div>
                 <ArticleDetail
                     id={id}
@@ -75,6 +88,8 @@ function ArticlePage ({match, location}) {
                             handleCommentSubmit={onCommentSubmit}
                         />
                     }
+                    loadComments={comments}
+                    delecteComment={onDeleteComment}
                 />
             </div>
         </div>

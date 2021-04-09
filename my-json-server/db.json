@@ -2,12 +2,57 @@
   "board": [
     {
       "id": 1,
-      "title": "앗싸 점심시간!!",
+      "title": "앗싸 금요일!!",
       "content": "✧*｡٩(ˊᗜˋ*)و✧*｡",
-      "views": 72,
-      "date": 1617847340085,
-      "editDate": 1617848639229
+      "views": 30,
+      "date": 1617931540979,
+      "editDate": ""
+    },
+    {
+      "id": 2,
+      "title": "게시판을 꾸며봅시다",
+      "content": "화이팅!!",
+      "views": 10,
+      "date": 1617934122498,
+      "editDate": ""
     }
   ],
-  "comment": []
+  "comment": [
+    {
+      "id": 1,
+      "content": "^^7",
+      "date": 1617871496907,
+      "articleId": 1
+    },
+    {
+      "id": 2,
+      "content": "댓글이다아아아아",
+      "date": 1617928114118,
+      "articleId": 1
+    },
+    {
+      "id": 3,
+      "content": "댓글이 생겨?",
+      "date": 1617929105327,
+      "articleId": 1
+    },
+    {
+      "id": 4,
+      "content": "우와아아아아아아아아아아악!!!! 짱신기해!!!!!!!",
+      "date": 1617929120167,
+      "articleId": 1
+    },
+    {
+      "id": 5,
+      "content": "댓글댓글",
+      "date": 1617942119015,
+      "articleId": 1
+    },
+    {
+      "id": 6,
+      "content": "댓글을 삭제해봅시다",
+      "date": 1617942419247,
+      "articleId": 1
+    }
+  ]
 }
