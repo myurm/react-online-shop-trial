@@ -8,10 +8,6 @@ const { Title } = Typography;
 
 function ArticleDetail(props) {
 
-    const onDeleteComment = (commentId) => {
-        dispatch(commentActions.delecteComment(commentId));
-    };
-    
     return (
         <div sytle={{
             width: "100%"
@@ -55,11 +51,6 @@ function ArticleDetail(props) {
                     <div style={{
                         float: "left"
                     }}>
-                        <span style={{
-                            color: "#aaa",
-                            marginRight: "10px",
-                            display: "inline-block"
-                        }}>날짜</span>
                         <span style={{
                             color: "#aaa"
                         }}>{new Date(props.date).toLocaleString()}</span>

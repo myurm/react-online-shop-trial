@@ -64,7 +64,13 @@ function ArticlePage ({match, location}) {
         dispatch(commentActions.registerComment(comment));
     };
 
-    const onDeleteComment = (commentId) => {};
+    const onDeleteComment = (commentId) => {
+        if(!window.confirm("삭제하시겠습니까?")) {
+            return false;
+        }
+        
+        dispatch(commentActions.deleteComment(commentId));
+    };
 
     return (
         <div style={{
@@ -89,7 +95,7 @@ function ArticlePage ({match, location}) {
                         />
                     }
                     loadComments={comments}
-                    delecteComment={onDeleteComment}
+                    deleteComment={onDeleteComment}
                 />
             </div>
         </div>
