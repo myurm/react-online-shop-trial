@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import BoardList from "./Sections/BoardList";
 // BoardList에서 export한 걸 받아와야 함
 import { Button, Typography} from "antd";
@@ -12,6 +12,7 @@ const { Title } = Typography;
 function BoardPage() {
     // dispatch, useSelector, useEffect는 무조건 function 안에 지정해야 함
     const dispatch = useDispatch();
+    const history = useHistory();
     // useState
     const { board, isLoading, isSuccess, error } = useSelector((state) => ({
         board: state.boardReducers.board,
@@ -27,6 +28,13 @@ function BoardPage() {
 
         dispatch(articleActions.deleteArticle(id));
     }
+
+    // 해당 아이디 게시글 화면으로 넘어감
+    const onArticleTitleClick = (id) => {
+        const path = `/article/${id}`;
+        history.push(path);
+    }
+
 
     // init
     useEffect(() => {
@@ -48,7 +56,7 @@ function BoardPage() {
                         paddingBottom: "30px",
                         color: "#555",
                         marginBottom: "0"
-                    }}>미람 게시판</Title>
+                    }}>미람게시판</Title>
                 </div>
                 <div style={{
                     textAlign: "right",
@@ -71,7 +79,11 @@ function BoardPage() {
                             borderBottom: "1px solid #eee"
                         }}> 에러 발생: {error} </h2>
                     ) : isSuccess && board.length > 0 ? (
-                        <BoardList board={board} handleDeleteClick={onDeleteClick} />
+                        <BoardList
+                            board={board}
+                            handleDeleteClick={onDeleteClick}
+                            handleArticleTitleClick={onArticleTitleClick}
+                        />
                     ) : isSuccess && board.length <= 0 ? (
                         <p style={{
                             textAlign: "center",

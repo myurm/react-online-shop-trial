@@ -24,7 +24,7 @@ function RegisterOrEdit(props) {
                     }}>
                         <label>제목</label>
                         <Input
-                            onChange={props.handleTitleChange}
+                            onChange={props.handleRegisterChange}
                             value={props.titleValue}
                             name="title"
                             type="text"
@@ -36,7 +36,7 @@ function RegisterOrEdit(props) {
                             display: "block"
                         }}>내용</label>
                         <TextArea
-                            onChange={props.handleContentChange}
+                            onChange={props.handleRegisterChange}
                             value={props.contentValue}
                             name="content"
                             style={{

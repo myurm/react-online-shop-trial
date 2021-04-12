@@ -17,6 +17,7 @@ function Comment(props) {
                             minHeight: "80px",
                             width: "calc(100% - 80px)",
                             float: "left",
+                            padding: "10px",
                             boxSizing: "border-box",
                             outlineStyle: "none",
                             resize: "none"

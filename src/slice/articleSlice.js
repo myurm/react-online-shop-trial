@@ -53,6 +53,23 @@ const reducers = {
     // 삭제
     deleteArticle: (state, { payload: id }) => {
         console.log("게시글 삭제 액션 호출 -- deleteArticle"); // saga에서 감시용
+    },
+    // title, content input change
+    changeRegisterInput: (state, { payload }) => {
+        switch (payload.name) {
+            case "title": // title case
+                return {
+                    ...state,
+                    title: payload.value
+                };
+            case "content": // content case
+                return {
+                    ...state,
+                    content: payload.value
+                };
+            default:
+                break;
+        }
     }
 };
 
