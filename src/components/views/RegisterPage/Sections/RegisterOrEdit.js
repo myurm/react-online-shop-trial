@@ -13,9 +13,9 @@ function RegisterOrEdit(props) {
                 margin: "0 auto",
                 paddingTop: "100px"
             }}>
-                <Link to="/">
+                <a href="/">
                     <Button>←</Button>
-                </Link>
+                </a>
                 <form onSubmit={props.handleSubmit}>
                     {/* onSubmit : form 태그 안에서 form 전송하기 전에 입력된 데이터의 유효성을 체크하기 위해 사용하는 이벤트 */}
                     <br />

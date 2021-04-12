@@ -33,10 +33,10 @@ function ArticlePage ({match, location}) {
 
     // 삭제
     const onDeleteClick = (id) => {
-        if (!window.confirm("삭제하시겠습니까?")) // window 안에 alret, confirm 등이 있음
-
-        return false;
-
+        if (!window.confirm("삭제하시겠습니까?")) { // window 안에 alret, confirm 등이 있음
+            return false;
+        }
+        
         dispatch(articleActions.deleteArticle(id));
     }
 

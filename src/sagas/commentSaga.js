@@ -16,7 +16,7 @@ export function* registerCommentAsync(action) {
 export function* getCommentsAsync(action) {
     const articleId = action.payload;
 
-    const rspn = yield Axios.get(`http://localhost:4000/comment?articleId${articleId}`);
+    const rspn = yield Axios.get(`http://localhost:4000/comment?articleId=${articleId}`);
 
     yield put(commentActions.getCommentsAsync(rspn.data));
 }

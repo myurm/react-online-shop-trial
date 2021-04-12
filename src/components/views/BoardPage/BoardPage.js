@@ -48,7 +48,7 @@ function BoardPage() {
                         paddingBottom: "30px",
                         color: "#555",
                         marginBottom: "0"
-                    }}>게시판</Title>
+                    }}>미람 게시판</Title>
                 </div>
                 <div style={{
                     textAlign: "right",

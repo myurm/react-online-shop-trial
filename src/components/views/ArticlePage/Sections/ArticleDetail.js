@@ -113,7 +113,7 @@ function ArticleDetail(props) {
                 <Link to={`/edit/${props.id}?isForEdit=true`}>
                     <Button type="primary">수정</Button>
                 </Link>
-                <Button style={{ marginLeft: "10px" }} onClick={props.handleDeleteClick} type="default">삭제</Button>
+                <Button style={{ marginLeft: "10px" }} onClick={() => props.handleDeleteClick(props.id)} type="default">삭제</Button>
             </div>
         </div>
     );

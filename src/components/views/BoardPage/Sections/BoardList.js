@@ -38,7 +38,7 @@ function BoardList(props) {
                 </tr>
                 {
                     props.board.map((article) => (
-                        <tr>
+                        <tr key={article.id}>
                             <td style={{
                                 width: "10%",
                                 textAlign: "center",
@@ -52,8 +52,9 @@ function BoardList(props) {
                                 display: "block"
                             }}>
                                 <td style={{
-                                    verticalAlign: "middle"
-                                }}>{article.title}</td>
+                                    color: "#333",
+                                    fontWeight: "600"
+                                }}>{article.title}&nbsp;{article.comments.length > 0 && `[${article.comments.lenght}]`}</td>
                             </Link>
                             <td style={{
                                 width: "10%",
