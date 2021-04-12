@@ -29,7 +29,7 @@ export default function* getBoardAsync() {
                 for (var comment in responseForComment.data) {
                     if(responseForComment.data[comment].articleId === responseForBoard.data[article].id) {
                     // 댓글 안에 있는 data 중 comment 안에 있는 articleId 가 게시글 안에 있는 data 중 article 안에 id가 같은가?
-                        comments.push(responseForComment.data[comment].id);
+                        comments.push(comment.id);
                         // 위에서 선언한 변수 안에 comment 안에 있는 id를 comments에 넣고, comments를 boardData에 넣어서 action.payload로 갖고 올 예정
                     }
                 }
